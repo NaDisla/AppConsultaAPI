@@ -3,22 +3,41 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppConsultaAPI.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+    <StackLayout BackgroundColor="AliceBlue">
+        <Label Text="Listado de personas"
+               FontAttributes="Bold"
+               Margin="0,30,0,30"
+               FontSize="Title"
+               HorizontalTextAlignment="Center"/>
+        <Button Text="Consultar API"
+                BackgroundColor="DarkCyan"
+                TextColor="White"
+                CornerRadius="30"
+                HorizontalOptions="Center"
+                x:Name="btnConsultaAPI"
+                Clicked="btnConsultaAPI_Clicked"
+                Padding="20,0,20,0"
+                FontSize="16"/>
+        <ListView x:Name="listaPersonas"
+                  SeparatorColor="DarkCyan"
+                  BackgroundColor="White"
+                  Margin="20"
+                  RowHeight="80"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout VerticalOptions="FillAndExpand"
+                                     Padding="20,10,0,10">
+                            <Label FontAttributes="Bold"
+                                   Text="{Binding PerID, StringFormat='Código: {0}'}" />
+                            <Label Text="{Binding PerNombre, StringFormat='Nombre: {0}'}" />
+                            <Label Text="{Binding PerEdad, StringFormat='Edad: {0}'}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

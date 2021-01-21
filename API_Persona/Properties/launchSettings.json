@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:55487",
+      "applicationUrl": "http://localhost:55873",
       "sslPort": 0
     }
   },
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "PersonaAPI": {
+    "API_Persona": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

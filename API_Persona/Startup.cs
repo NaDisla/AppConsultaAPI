@@ -1,12 +1,12 @@
+using API_Persona.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PersonaAPI.Models;
 
-namespace PersonaAPI
+namespace API_Persona
 {
     public class Startup
     {
@@ -20,7 +20,8 @@ namespace PersonaAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DB_CRUDPersonaContext>(config => config.UseSqlServer(Configuration.GetConnectionString("ConsultaAPI")));
+            services.AddDbContext<DB_CRUDPersonaContext>(config => config
+                    .UseSqlServer(Configuration.GetConnectionString("ConsultaAPI")));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
